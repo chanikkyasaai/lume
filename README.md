@@ -56,7 +56,7 @@ I'm currently working on this project to implement the **best product-ready appl
 git clone https://github.com/chanikkyasaai/lume
 
 # Navigate to project directory
-cd summon-the-council
+cd lume
 
 # Install dependencies
 npm install
