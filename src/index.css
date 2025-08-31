@@ -1,0 +1,263 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Lume Platform Design System - Modern & Crafted */
+
+@layer base {
+  :root {
+    /* Dark, sophisticated gradient palette */
+    --background: 220 30% 6%;
+    --background-secondary: 225 25% 9%;
+    --background-tertiary: 230 20% 12%;
+    
+    --foreground: 210 40% 95%;
+    --foreground-muted: 220 15% 70%;
+    --foreground-subtle: 225 12% 60%;
+    
+    /* Glass Effects with darker tones */
+    --glass-primary: 220 35% 8% / 0.9;
+    --glass-secondary: 225 30% 12% / 0.8; 
+    --glass-overlay: 230 25% 15% / 0.6;
+    
+    /* Borders */
+    --border: 220 20% 18%;
+    --input: 225 18% 15%;
+    --ring: 240 80% 60%;
+    
+    /* Darker, more sophisticated glow effects */
+    --glow-primary: 240 70% 55%;
+    --glow-secondary: 280 60% 50%;
+    --glow-accent: 260 65% 52%;
+    
+    /* Primary Colors */
+    --primary: 240 70% 55%;
+    --primary-foreground: 220 40% 98%;
+    
+    /* Secondary Colors */
+    --secondary: 225 20% 15%;
+    --secondary-foreground: 210 40% 95%;
+    
+    /* Component Colors */
+    --muted: 225 15% 12%;
+    --muted-foreground: 220 12% 65%;
+    --accent: 260 65% 52%;
+    --accent-foreground: 220 40% 98%;
+    --destructive: 0 70% 55%;
+    --destructive-foreground: 210 40% 98%;
+    --popover: 225 25% 9%;
+    --popover-foreground: 210 40% 95%;
+    --card: 225 25% 9%;
+    --card-foreground: 210 40% 95%;
+    
+    /* Border Radius */
+    --radius: 1rem;
+    
+    /* Darker, more elegant gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(240 70% 55%), hsl(280 60% 50%));
+    --gradient-secondary: linear-gradient(180deg, hsl(220 30% 6%), hsl(230 25% 10%));
+    --gradient-modern: linear-gradient(135deg, 
+      hsl(220 40% 8%) 0%, 
+      hsl(235 35% 12%) 25%, 
+      hsl(250 30% 16%) 50%, 
+      hsl(265 25% 20%) 75%, 
+      hsl(280 30% 18%) 100%);
+    --gradient-glow: radial-gradient(circle, hsl(240 70% 55% / 0.25), hsl(280 60% 50% / 0.15));
+    --gradient-grain: 
+      radial-gradient(circle at 20% 80%, hsl(240 70% 55% / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(280 60% 50% / 0.06) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(260 65% 52% / 0.04) 0%, transparent 50%);
+  }
+
+  /* Font family definitions */
+  .font-clash {
+    font-family: 'Clash Display', sans-serif;
+  }
+  
+  .font-author {
+    font-family: 'Author', sans-serif;
+  }
+  
+  .font-quicksand {
+    font-family: 'Quicksand', sans-serif;
+  }
+  
+  .font-britney {
+    font-family: 'Britney', cursive;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-author;
+    overflow-x: hidden;
+  }
+  
+  /* Hide scrollbars */
+  html {
+    overflow-x: hidden;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* Internet Explorer 10+ */
+  }
+  
+  html::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    display: none; /* Chrome, Safari, Opera */
+  }
+  
+  /* Ensure mobile viewport fits properly */
+  #root {
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+}
+
+@layer utilities {
+  .line-clamp-6 {
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    line-clamp: 6;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  
+  .drop-shadow-glow {
+    filter: drop-shadow(0 0 8px hsl(var(--glow-primary) / 0.6));
+  }
+  
+  /* Modern gradient background */
+  .bg-gradient-modern {
+    background: var(--gradient-modern);
+  }
+  
+  /* Grain effect overlay */
+  .grain-overlay {
+    position: relative;
+  }
+  
+  .grain-overlay::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: 0.6;
+    background-image: 
+      radial-gradient(circle at 1px 1px, rgba(255,255,255,0.15) 1px, transparent 0);
+    background-size: 20px 20px;
+    pointer-events: none;
+    z-index: 1;
+  }
+  
+  /* Text shadow effects */
+  .text-shadow-glow {
+    text-shadow: 0 0 10px hsl(var(--glow-primary) / 0.5);
+  }
+  
+  /* Mobile optimizations */
+  @media (max-width: 640px) {
+    body {
+      font-size: 14px;
+    }
+    
+    /* Ensure grid cards fill properly on mobile */
+    .grid-cols-2 > * {
+      min-height: 42vh;
+    }
+  }
+}
+
+
+/* Sidebar improvements */
+.sidebar-transition {
+  transition: all 0.3s cubic-bezier(0.4, 0.0, 0.2, 1);
+}
+
+/* Council page specific styling - proper scaling without black space */
+.council-page {
+  /* Scale down to 90% but use transform-origin to center properly */
+  transform: scale(0.9);
+  transform-origin: center top;
+  /* Adjust height to compensate for scaling */
+  min-height: 111.11vh; /* 100vh / 0.9 = 111.11vh */
+  width: 111.11%; /* 100% / 0.9 = 111.11% */
+  margin-left: -5.56%; /* Center horizontally: (111.11% - 100%) / 2 */
+  margin-top: 0;
+  /* Ensure content fills the page */
+  display: flex;
+  flex-direction: column;
+}
+
+.council-page .header-compact {
+  padding: 0.5rem 1rem; /* More compact header */
+}
+
+.council-page .panelist-card-compact {
+  padding: 1rem; /* More compact cards */
+}
+
+/* Custom Scrollbar Design */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background-secondary));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--glow-primary)) 0%,
+    hsl(var(--glow-secondary)) 50%,
+    hsl(var(--glow-accent)) 100%
+  );
+  border-radius: 4px;
+  border: 1px solid hsl(var(--border));
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(
+    135deg,
+    hsl(var(--glow-primary) / 0.8) 0%,
+    hsl(var(--glow-secondary) / 0.8) 50%,
+    hsl(var(--glow-accent) / 0.8) 100%
+  );
+  box-shadow: 0 0 8px hsl(var(--glow-primary) / 0.3);
+}
+
+::-webkit-scrollbar-corner {
+  background: hsl(var(--background-secondary));
+}
+
+/* Firefox Custom Scrollbar */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: hsl(var(--glow-primary)) hsl(var(--background-secondary));
+}
+
+/* Mobile responsiveness */
+@media (max-width: 768px) {
+  .council-page {
+    /* Keep normal scale on mobile to avoid layout issues */
+    transform: scale(1);
+    min-height: 100vh;
+    width: 100%;
+    margin-left: 0;
+  }
+  
+  /* Thinner scrollbar on mobile */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+}
+
