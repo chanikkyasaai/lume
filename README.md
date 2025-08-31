@@ -2,7 +2,7 @@
 
 *Revolutionary AI Collaboration Platform*
 
-**Created by:** [Chanikya Nelapatla (Chane)](https://github.com/thechanedev)  
+**Created by:** [Chanikya Nelapatla (Chane)](https://github.com/chanikkyasaai)  
 **Project:** Murf Coding Challenge 4  
 **Live Demo:** [https://lume-ar4bq733a-nelapatlachanikyasai-gmailcoms-projects.vercel.app](https://lume-ar4bq733a-nelapatlachanikyasai-gmailcoms-projects.vercel.app)
 
@@ -53,7 +53,7 @@ I'm currently working on this project to implement the **best product-ready appl
 
 ```bash
 # Clone the repository
-git clone https://github.com/thechanedev/summon-the-council.git
+git clone https://github.com/chanikkyasaai/lume
 
 # Navigate to project directory
 cd summon-the-council
